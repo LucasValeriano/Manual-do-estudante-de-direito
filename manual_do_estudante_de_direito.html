@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual do Estudante De Direito — +1.000 Livros Completos de Direito</title>
+    <meta name="description" content="Biblioteca completa com +500 livros de Direito organizados por disciplina. Do 1º período à OAB. Download em PDF por menos que o preço de um livro.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#ffffff',
+                        foreground: '#0f172a',
+                        muted: {
+                            DEFAULT: '#f1f5f9',
+                            foreground: '#64748b'
+                        },
+                        card: '#ffffff',
+                        border: '#e2e8f0',
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            dark: '#b5952f',
+                            light: '#f3e5ab'
+                        },
+                        navy: {
+                            DEFAULT: '#1e3a8a',
+                            dark: '#0f172a',
+                            light: '#3b82f6'
+                        },
+                        burgundy: {
+                            DEFAULT: '#800020'
+                        },
+                        destructive: {
+                            DEFAULT: '#ef4444',
+                            foreground: '#f8fafc'
+                        },
+                        secondary: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-cta {
+                @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-8 py-4 font-bold text-navy-dark shadow-lg transition-transform hover:scale-105 active:scale-95;
+            }
+            .btn-premium-pulse {
+                @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-8 py-4 font-bold text-navy-dark shadow-lg transition-all hover:scale-105 active:scale-95 animate-pulse hover:animate-none hover:shadow-gold/50 hover:shadow-xl;
+            }
+            .btn-orange {
+                @apply inline-block rounded-lg bg-orange-600 px-4 py-2 font-bold text-white shadow-md;
+            }
+            .feature-card {
+                @apply rounded-xl border border-border bg-card shadow-sm text-center transition-all hover:shadow-md hover:-translate-y-1;
+            }
+            .icon-circle {
+                @apply flex items-center justify-center rounded-full;
+            }
+            .section-hero {
+                @apply bg-navy-dark relative overflow-hidden;
+            }
+            .section-navy {
+                @apply bg-navy-dark relative overflow-hidden;
+            }
+            .badge-offer {
+                @apply items-center gap-1.5 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 font-semibold text-red-500 backdrop-blur-sm;
+            }
+            .countdown-box {
+                @apply flex flex-col items-center justify-center rounded-xl bg-card border border-border shadow-sm;
+            }
+            
+            /* Accordion Animations */
+            .accordion-content[data-state="open"] {
+                display: block;
+                animation: slideDown 300ms ease-out forwards;
+            }
+            .accordion-content[data-state="closed"] {
+                display: none;
+            }
+            @keyframes slideDown {
+                from { height: 0; opacity: 0; }
+                to { height: auto; opacity: 1; }
+            }
+
+            /* Custom Scrollbar for Modal & Chat */
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 6px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                background-color: #cbd5e1;
+                border-radius: 20px;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            @apply font-sans antialiased text-foreground bg-background;
+        }
+        h1, h2 {
+            @apply font-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Top Banner -->
+    <div class="w-full bg-destructive py-2.5 text-center">
+        <p class="flex items-center justify-center gap-2 text-sm font-bold text-destructive-foreground">
+            🔥 DESCONTO EXCLUSIVO SÓ HOJE — 22/06/2026 🔥
+        </p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="section-hero px-4 py-10 text-center sm:py-16 md:py-20">
+        <div class="mx-auto max-w-3xl relative z-10">
+            <span class="badge-offer mb-4 inline-flex animate-pulse text-xs sm:mb-6 sm:text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-3.5 w-3.5 sm:h-4 sm:w-4"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                ⚡ ÚLTIMAS VAGAS — OFERTA ENCERRA HOJE
+            </span>
+            <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold-light/60 sm:mb-3 sm:text-base">Estudante de Direito, isso é pra você:</p>
+            <h1 class="mb-3 text-3xl font-black leading-tight text-gold sm:mb-4 md:text-5xl lg:text-6xl">Você Ainda Vai Gastar<br><span class="text-gold-light">R$ 10.000 em Livros?</span></h1>
+            <p class="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-gold-light/80 sm:mb-6 sm:text-base md:text-xl">
+                <strong class="text-gold">+1.000 livros completos, resumos, mapas mentais, petições e muito mais</strong> — tudo organizado por disciplina, pronto pra baixar. Perfeito para <strong class="text-gold">estudantes de Direito, concurseiros e advogados</strong>. <strong class="text-gold">Por menos que o preço de UM livro.</strong>
+            </p>
+            
+            <img src="https://www.manualdoestudante.online/assets/hero-mockup-B7__ZeFi.webp" onerror="this.src='https://placehold.co/600x400/1e3a8a/d4af37?text=Mockup+Biblioteca+Direito'" alt="Biblioteca Completa do Estudante de Direito" class="mx-auto mb-4 w-full max-w-md rounded-xl drop-shadow-[0_0_30px_rgba(202,168,70,0.5)] sm:mb-6 sm:max-w-lg md:max-w-xl">
+            
+            <div class="my-3 inline-block rounded-lg bg-gold px-4 py-2 text-sm font-bold text-navy-dark shadow-md sm:my-4 sm:px-6 sm:py-3 sm:text-lg">
+                +1.000 LIVROS COMPLETOS + BÔNUS DE PETIÇÕES E CONTRATOS
+            </div>
+            
+            <p class="mx-auto mt-3 max-w-2xl text-sm text-gold-light/60 sm:mt-4 sm:text-base">
+                Direito Constitucional, Civil, Penal, Administrativo, Trabalhista, Tributário, Empresarial, Processual Civil, Processual Penal, Ambiental, Internacional…<br>
+                <strong class="text-gold-light">Cada matéria organizada. Cada livro pronto para baixar.</strong>
+            </p>
+            
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-gold-light/50 sm:mt-6 sm:gap-4 sm:text-sm">
+                <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check h-3.5 w-3.5 text-gold sm:h-4 sm:w-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg> Garantia de 7 dias</span>
+                <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-3.5 w-3.5 text-gold sm:h-4 sm:w-4"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg> Do 1º período à OAB</span>
+                <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-3.5 w-3.5 text-gold sm:h-4 sm:w-4"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg> +500 livros completos</span>
+            </div>
+            
+            <div class="mt-6 sm:mt-8">
+                <button onclick="document.getElementById('planos').scrollIntoView({ behavior: 'smooth' })" class="btn-cta text-base font-black sm:text-xl">
+                    QUERO MINHA BIBLIOTECA AGORA
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down h-4 w-4 animate-bounce sm:h-5 sm:w-5"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-background px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-5xl text-center">
+            <h2 class="mb-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">O Que Você Vai <span class="text-gold-dark">Receber</span></h2>
+            <p class="mb-6 text-sm text-muted-foreground sm:mb-10 sm:text-base">Imagine ter <strong class="text-foreground">toda a bibliografia da faculdade</strong> organizada e pronta para consulta — sem gastar centenas de reais em livrarias</p>
+            
+            <div class="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
+                <div class="feature-card p-4 sm:p-6">
+                    <div class="icon-circle mx-auto mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-navy text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-5 w-5 sm:h-6 sm:w-6"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-lg">+1.000 Livros Completos</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Biblioteca com mais de 500 obras essenciais de todas as áreas do Direito — prontos para leitura e download</p>
+                </div>
+                
+                <div class="feature-card p-4 sm:p-6">
+                    <div class="icon-circle mx-auto mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-navy text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open h-5 w-5 sm:h-6 sm:w-6"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-lg">Organizado por Disciplina</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Constitucional, Civil, Penal, Trabalhista, Tributário, Processual e mais. Encontre qualquer livro em segundos</p>
+                </div>
+                
+                <div class="feature-card p-4 sm:p-6">
+                    <div class="icon-circle mx-auto mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-navy text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone h-5 w-5 sm:h-6 sm:w-6"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-lg">Acesso em Qualquer Lugar</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Pelo celular, tablet ou computador — sua biblioteca inteira no bolso, 24h por dia</p>
+                </div>
+                
+                <div class="feature-card p-4 sm:p-6">
+                    <div class="icon-circle mx-auto mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-navy text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download h-5 w-5 sm:h-6 sm:w-6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-lg">Download Imediato</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Todos os livros disponíveis para download em PDF — leia online ou offline, quando e onde quiser</p>
+                </div>
+            </div>
+            
+            <div class="mx-auto mt-4 max-w-lg sm:mt-6">
+                <div class="feature-card border-gold p-4 sm:p-6" style="background: linear-gradient(rgb(251, 249, 244), rgb(255, 255, 255));">
+                    <div class="icon-circle mx-auto mb-3 h-10 w-10 bg-gold text-navy-dark sm:mb-4 sm:h-14 sm:w-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-5 w-5 sm:h-6 sm:w-6"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-lg">Do 1º Período à OAB</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Livros para cada fase da sua jornada acadêmica. <strong class="text-foreground">Pare de perder tempo procurando material — aqui está tudo reunido.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="bg-secondary px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-5xl text-center">
+            <p class="mb-1 text-xs font-bold tracking-widest text-gold-dark sm:mb-2 sm:text-sm">POR QUE ESCOLHER</p>
+            <h2 class="mb-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">Por Que Escolher o <span class="text-gold-dark">Manual do Estudante de Direito?</span></h2>
+            <p class="mb-6 text-sm text-muted-foreground sm:mb-10 sm:text-base">Milhares de estudantes já pararam de gastar fortunas em livros e transformaram sua rotina acadêmica</p>
+            
+            <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-6 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-navy text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-library h-5 w-5 sm:h-6 sm:w-6"><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path d="M8 8v12"></path><path d="M4 4v16"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Tudo em Um Só Lugar</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Chega de ficar caçando PDF em sites duvidosos. Aqui você tem +500 livros organizados por matéria e período</p>
+                </div>
+                
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-6 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-navy-light text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-check h-5 w-5 sm:h-6 sm:w-6"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><path d="m9 9.5 2 2 4-4"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Obras Essenciais</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Os livros mais cobrados nas provas e indicados pelos melhores professores de Direito do Brasil</p>
+                </div>
+                
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-6 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-burgundy text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw h-5 w-5 sm:h-6 sm:w-6"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Atualizações Gratuitas</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Novos livros e edições atualizadas são adicionados periodicamente sem custo extra</p>
+                </div>
+                
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-6 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 sm:mb-4 sm:h-14 sm:w-14 bg-gold-dark text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock h-5 w-5 sm:h-6 sm:w-6"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Economize +R$5.000</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Uma biblioteca que custaria milhares em livrarias — por uma fração do preço, com acesso instantâneo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="section-navy px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-5xl text-center">
+            <div class="mb-4 inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-bold text-navy-dark shadow-lg sm:mb-6 sm:px-6 sm:py-3 sm:text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gift h-4 w-4 sm:h-5 sm:w-5"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg>
+                Receba 3 Bônus Exclusivos GRÁTIS!
+            </div>
+            <p class="mb-6 text-sm text-gold-light/70 sm:mb-10 sm:text-base">Além dos +500 livros, você ainda leva materiais extras que vão te dar vantagem competitiva</p>
+            
+            <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="rounded-xl border border-gold/20 bg-card/10 p-4 sm:p-6 backdrop-blur-sm transition-transform hover:-translate-y-2">
+                    <div class="mb-3 overflow-hidden rounded-lg border-2 border-gold/40 sm:mb-4">
+                        <img src="https://www.manualdoestudante.online/assets/bonus-peticoes-opt-CkxOAzgd.webp" onerror="this.src='https://placehold.co/400x400/0f172a/d4af37?text=Pack+Peticões'" alt="Pack de Petições Iniciais" class="aspect-square w-full object-cover">
+                    </div>
+                    <h3 class="mb-1 text-base font-bold text-gold sm:mb-2 sm:text-lg">Pack de Petições Iniciais</h3>
+                    <p class="mb-2 text-xs text-gold-light/60 sm:mb-3 sm:text-sm">Mais de 100 modelos prontos de petições para as áreas mais cobradas: cível, trabalhista, consumidor e família — editáveis em Word e PDF</p>
+                    <p class="text-xs text-gold-light/50 sm:text-sm">VALOR: <span class="line-through">R$ 97</span></p>
+                </div>
+                
+                <div class="rounded-xl border border-gold/20 bg-card/10 p-4 sm:p-6 backdrop-blur-sm transition-transform hover:-translate-y-2">
+                    <div class="mb-3 overflow-hidden rounded-lg border-2 border-gold/40 sm:mb-4">
+                        <img src="https://www.manualdoestudante.online/assets/bonus-contratos-opt-D7S3sOME.webp" onerror="this.src='https://placehold.co/400x400/0f172a/d4af37?text=Contratos+Honorários'" alt="Contratos e Honorários" class="aspect-square w-full object-cover">
+                    </div>
+                    <h3 class="mb-1 text-base font-bold text-gold sm:mb-2 sm:text-lg">Contratos e Honorários</h3>
+                    <p class="mb-2 text-xs text-gold-light/60 sm:mb-3 sm:text-sm">Templates completos de contratos de prestação de serviço, honorários advocatícios e procurações — prontos para usar no estágio ou na OAB</p>
+                    <p class="text-xs text-gold-light/50 sm:text-sm">VALOR: <span class="line-through">R$ 67</span></p>
+                </div>
+                
+                <div class="rounded-xl border border-gold/20 bg-card/10 p-4 sm:p-6 backdrop-blur-sm transition-transform hover:-translate-y-2">
+                    <div class="mb-3 overflow-hidden rounded-lg border-2 border-gold/40 sm:mb-4">
+                        <img src="https://www.manualdoestudante.online/assets/bonus-estagio-new-opt-BuxtWlgv.webp" onerror="this.src='https://placehold.co/400x400/0f172a/d4af37?text=Guia+Estágio'" alt="Como Conseguir Meu Primeiro Estágio" class="aspect-square w-full object-cover">
+                    </div>
+                    <h3 class="mb-1 text-base font-bold text-gold sm:mb-2 sm:text-lg">Como Conseguir Meu Primeiro Estágio</h3>
+                    <p class="mb-2 text-xs text-gold-light/60 sm:mb-3 sm:text-sm">Guia completo com passo a passo para conquistar sua primeira vaga em escritório de advocacia, tribunal ou órgão público</p>
+                    <p class="text-xs text-gold-light/50 sm:text-sm">VALOR: <span class="line-through">R$ 47</span></p>
+                </div>
+            </div>
+            
+            <p class="mt-6 text-gold-light/60 sm:mt-8">Total em bônus:</p>
+            <p class="mb-4 text-2xl font-bold text-gold-light line-through sm:mb-6 sm:text-3xl">R$ 211</p>
+            <button onclick="abrirCheckout('pro')" class="btn-cta text-xl font-black sm:text-2xl animate-pulse">HOJE: GRÁTIS!</button>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="bg-secondary px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-5xl text-center">
+            <div class="mb-4 inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-sm font-bold text-gold shadow-lg sm:mb-6 sm:px-6 sm:py-3 sm:text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot h-4 w-4 sm:h-5 sm:w-5"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+                MANUAL AI
+            </div>
+            <h2 class="mb-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">Sua <span class="text-gold-dark">Inteligência Artificial</span> Jurídica Pessoal</h2>
+            <p class="mx-auto mb-6 max-w-2xl text-sm text-muted-foreground sm:mb-10 sm:text-base">Exclusivo do Plano PRO — um assistente de IA feito para estudantes de Direito. Tire dúvidas, peça resumos, receba indicações de livros e muito mais.</p>
+            
+            <div class="mx-auto mb-8 w-full max-w-[340px] sm:max-w-sm overflow-hidden rounded-2xl border-2 border-border bg-card shadow-xl sm:mb-12 hover:shadow-2xl transition-shadow flex flex-col h-[400px]">
+                <div class="flex items-center justify-between bg-navy px-4 py-2 sm:px-5 sm:py-3">
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot h-4 w-4 text-gold sm:h-5 sm:w-5"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+                        <span class="text-sm font-bold text-gold sm:text-base">Manual AI</span>
+                    </div>
+                    <div class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></div>
+                </div>
+                
+                <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-3 px-4 py-4 sm:space-y-4 sm:px-5 sm:py-6 bg-slate-50 custom-scrollbar scroll-smooth">
+                    <div class="flex justify-center">
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot mx-auto mb-1 h-8 w-8 text-gold-dark sm:mb-2 sm:h-10 sm:w-10"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+                            <p class="text-xs font-semibold text-foreground sm:text-sm">Olá! Sou o Manual AI.</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Pergunte sobre qualquer tema de Direito!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-border px-3 py-2 sm:px-4 sm:py-3 bg-white">
+                    <form id="ai-chat-form" class="flex items-center gap-2">
+                        <input type="text" id="ai-chat-input" placeholder="Digite sua dúvida jurídica..." class="flex-1 rounded-lg bg-muted border border-border px-3 py-2 text-base sm:text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors" autocomplete="off" />
+                        <button type="submit" id="ai-chat-submit" class="bg-navy text-white rounded-lg p-2 hover:bg-navy-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-5 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 bg-navy text-gold sm:mb-4 sm:h-14 sm:w-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle h-5 w-5 sm:h-6 sm:w-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Tire Dúvidas Instantaneamente</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Pergunte sobre qualquer tema de Direito e receba respostas claras e fundamentadas em segundos</p>
+                </div>
+                
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-5 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 bg-navy text-gold sm:mb-4 sm:h-14 sm:w-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-5 w-5 sm:h-6 sm:w-6"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Indicações de Livros</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Receba recomendações personalizadas de livros da biblioteca com base na sua matéria e necessidade</p>
+                </div>
+                
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-5 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 bg-navy text-gold sm:mb-4 sm:h-14 sm:w-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain h-5 w-5 sm:h-6 sm:w-6"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Auxílio nos Estudos</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">Resumos, fichamentos, explicações de conceitos complexos e preparação para provas e OAB</p>
+                </div>
+                
+                <div class="rounded-xl bg-card p-4 text-left shadow-sm sm:p-5 hover:-translate-y-1 transition-transform">
+                    <div class="icon-circle mb-3 h-10 w-10 bg-navy text-gold sm:mb-4 sm:h-14 sm:w-14">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-5 w-5 sm:h-6 sm:w-6"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+                    </div>
+                    <h3 class="mb-1 text-sm font-bold text-foreground sm:mb-2 sm:text-base">Sempre Atualizado</h3>
+                    <p class="text-xs text-muted-foreground sm:text-sm">IA treinada com conteúdo jurídico atualizado para te dar as melhores respostas</p>
+                </div>
+            </div>
+            
+            <p class="mt-6 text-xs text-muted-foreground sm:mt-8 sm:text-sm">Disponível exclusivamente no <strong class="text-gold-dark">Plano PRO</strong></p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-card px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-5xl text-center">
+            <p class="mb-1 text-xs font-bold tracking-widest text-gold-dark sm:mb-2 sm:text-sm">DEPOIMENTOS REAIS</p>
+            <h2 class="mb-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">Veja o Que Nossos <span class="text-gold-dark">Estudantes</span> Estão Dizendo</h2>
+            <p class="mb-6 text-sm text-muted-foreground sm:mb-10 sm:text-base">Mais de 1.253 estudantes já transformaram sua rotina acadêmica com a nossa biblioteca</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Testimonial 1 -->
+                <div class="rounded-xl border border-border bg-background p-4 text-left sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote mb-2 h-6 w-6 text-gold/30 sm:mb-3 sm:h-8 sm:w-8"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                    <div class="mb-2 flex gap-0.5 sm:mb-3 sm:gap-1 text-gold">
+                        ★★★★★
+                    </div>
+                    <p class="mb-4 text-xs leading-relaxed text-muted-foreground sm:mb-6 sm:text-sm">"Essa biblioteca salvou meu semestre! Todos os livros que meus professores indicavam estavam lá, organizados por matéria. Não precisei gastar nada em livraria e ainda tirei notas altas!"</p>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://placehold.co/80x80/1e3a8a/d4af37?text=LM" alt="Lucas Mendes" class="h-8 w-8 rounded-full object-cover sm:h-10 sm:w-10">
+                        <div>
+                            <p class="text-xs font-bold text-foreground sm:text-sm">Lucas Mendes</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Estudante de Direito — 6º período</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="rounded-xl border border-border bg-background p-4 text-left sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote mb-2 h-6 w-6 text-gold/30 sm:mb-3 sm:h-8 sm:w-8"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                    <div class="mb-2 flex gap-0.5 sm:mb-3 sm:gap-1 text-gold">
+                        ★★★★★
+                    </div>
+                    <p class="mb-4 text-xs leading-relaxed text-muted-foreground sm:mb-6 sm:text-sm">"Eu gastava mais de R$300 por semestre comprando livros. Com essa biblioteca, paguei uma vez e tenho tudo. Minha vida financeira na faculdade mudou completamente!"</p>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://www.manualdoestudante.online/assets/avatar-mulher1-Bs19H_5Q.webp" onerror="this.src='https://placehold.co/80x80/1e3a8a/d4af37?text=CR'" alt="Carolina Ribeiro" class="h-8 w-8 rounded-full object-cover sm:h-10 sm:w-10">
+                        <div>
+                            <p class="text-xs font-bold text-foreground sm:text-sm">Carolina Ribeiro</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Estudante de Direito — 4º período</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="rounded-xl border border-border bg-background p-4 text-left sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote mb-2 h-6 w-6 text-gold/30 sm:mb-3 sm:h-8 sm:w-8"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                    <div class="mb-2 flex gap-0.5 sm:mb-3 sm:gap-1 text-gold">
+                        ★★★★★
+                    </div>
+                    <p class="mb-4 text-xs leading-relaxed text-muted-foreground sm:mb-6 sm:text-sm">"Comprei achando que seria meia dúzia de PDFs, mas são mais de 500 livros COMPLETOS. Os bônus de petições então, me salvaram no estágio. Vale muito mais do que custa!"</p>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://www.manualdoestudante.online/assets/avatar-mulher2-DFoweGub.webp" onerror="this.src='https://placehold.co/80x80/1e3a8a/d4af37?text=FA'" alt="Fernanda Alves" class="h-8 w-8 rounded-full object-cover sm:h-10 sm:w-10">
+                        <div>
+                            <p class="text-xs font-bold text-foreground sm:text-sm">Fernanda Alves</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Estagiária em Escritório de Advocacia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="rounded-xl border border-border bg-background p-4 text-left sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote mb-2 h-6 w-6 text-gold/30 sm:mb-3 sm:h-8 sm:w-8"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                    <div class="mb-2 flex gap-0.5 sm:mb-3 sm:gap-1 text-gold">
+                        ★★★★★
+                    </div>
+                    <p class="mb-4 text-xs leading-relaxed text-muted-foreground sm:mb-6 sm:text-sm">"Estava perdida no início do curso sem saber quais livros comprar. Com a biblioteca do Manual, tenho todos os livros que preciso desde o 1º período. Super recomendo!"</p>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="https://www.manualdoestudante.online/assets/avatar-mulher3-BQ0MWUhq.webp" onerror="this.src='https://placehold.co/80x80/1e3a8a/d4af37?text=AO'" alt="Amanda Oliveira" class="h-8 w-8 rounded-full object-cover sm:h-10 sm:w-10">
+                        <div>
+                            <p class="text-xs font-bold text-foreground sm:text-sm">Amanda Oliveira</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Estudante de Direito — 2º período</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planos" class="bg-secondary px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-4xl text-center">
+            <h2 class="mb-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">Escolha Seu <span class="text-gold-dark">Plano</span></h2>
+            <div class="btn-orange mx-auto mb-4 text-sm sm:mb-6 sm:text-base">OFERTA LIMITADA — TERMINA EM:</div>
+            
+            <div class="mb-6 flex items-center justify-center gap-2 sm:mb-10 sm:gap-3">
+                <div class="countdown-box h-14 w-14 sm:h-20 sm:w-20">
+                    <span id="hours" class="text-lg sm:text-2xl font-bold">00</span>
+                    <span class="text-[9px] font-normal opacity-70 sm:text-xs">Horas</span>
+                </div>
+                <span class="text-xl font-bold text-foreground sm:text-3xl">:</span>
+                <div class="countdown-box h-14 w-14 sm:h-20 sm:w-20">
+                    <span id="minutes" class="text-lg sm:text-2xl font-bold">08</span>
+                    <span class="text-[9px] font-normal opacity-70 sm:text-xs">Minutos</span>
+                </div>
+                <span class="text-xl font-bold text-foreground sm:text-3xl">:</span>
+                <div class="countdown-box h-14 w-14 sm:h-20 sm:w-20">
+                    <span id="seconds" class="text-lg sm:text-2xl font-bold">34</span>
+                    <span class="text-[9px] font-normal opacity-70 sm:text-xs">Segundos</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 items-start gap-4 sm:gap-6 md:grid-cols-2">
+                <!-- Plano Basico -->
+                <div class="rounded-2xl border-2 border-border bg-card p-4 sm:p-8 hover:-translate-y-1 transition-transform">
+                    <h3 class="mb-1 text-xl font-bold text-foreground sm:mb-2 sm:text-2xl">Plano Básico</h3>
+                    <p class="mb-1 text-xs text-muted-foreground sm:text-sm">Apenas a Biblioteca</p>
+                    <p class="mb-1 text-sm text-muted-foreground line-through">R$ 47</p>
+                    <p class="mb-1 text-3xl font-black text-navy sm:text-5xl">R$ 10<span class="text-lg sm:text-2xl">,00</span></p>
+                    <p class="mb-4 text-xs text-muted-foreground sm:mb-6 sm:text-sm">pagamento único</p>
+                    
+                    <div class="mb-6 border-t border-border pt-4 sm:mb-8 sm:pt-6">
+                        <ul class="space-y-2 text-left sm:space-y-3">
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 text-gold-dark sm:h-5 sm:w-5"><path d="M20 6 9 17l-5-5"></path></svg>+500 Livros Completos de Direito</li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 text-gold-dark sm:h-5 sm:w-5"><path d="M20 6 9 17l-5-5"></path></svg>Organizados por disciplina e período</li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 text-gold-dark sm:h-5 sm:w-5"><path d="M20 6 9 17l-5-5"></path></svg>Acesso por 3 meses</li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 text-gold-dark sm:h-5 sm:w-5"><path d="M20 6 9 17l-5-5"></path></svg>Download em PDF</li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 text-gold-dark sm:h-5 sm:w-5"><path d="M20 6 9 17l-5-5"></path></svg>Garantia de 7 dias</li>
+                        </ul>
+                    </div>
+                    <button onclick="abrirOfertaUpgrade()" class="w-full rounded-xl bg-navy py-3 text-base font-bold tracking-wide text-gold transition-opacity hover:opacity-90 sm:py-4 sm:text-lg">QUERO O BÁSICO</button>
+                </div>
+                
+                <!-- Plano PRO -->
+                <div class="relative overflow-hidden rounded-2xl border-2 border-gold shadow-xl hover:-translate-y-1 transition-transform">
+                    <div class="relative bg-navy px-4 pb-4 pt-6 text-center sm:px-8 sm:pb-6 sm:pt-8">
+                        <div class="absolute right-[-35px] top-[25px] rotate-45 bg-gold px-10 py-1 text-[10px] font-bold text-navy-dark sm:text-xs">Mais Popular</div>
+                        <div class="mb-1 flex justify-center gap-1 sm:mb-2"><span class="text-gold">⭐⭐⭐</span></div>
+                        <h3 class="mb-1 text-xl font-bold text-gold sm:text-2xl">Plano PRO</h3>
+                        <p class="mb-1 text-[10px] text-gold-light/60 sm:text-xs">Biblioteca + Acesso Vitalício + Bônus + MANUAL AI</p>
+                        <p class="mb-1 text-sm text-gold-light/60 line-through">R$ 256</p>
+                        <p class="mb-1 text-4xl font-black text-gold sm:text-5xl">R$ 24<span class="text-xl sm:text-2xl">,90</span></p>
+                        <p class="text-xs text-gold-light/60 sm:text-sm">pagamento único</p>
+                    </div>
+                    
+                    <div class="bg-card px-4 pb-6 pt-4 sm:px-8 sm:pb-8 sm:pt-6">
+                        <ul class="mb-6 space-y-2 text-left sm:mb-8 sm:space-y-3">
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-gold-dark"><path d="M20 6 9 17l-5-5"></path></svg><span class="">+500 Livros Completos de Direito</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-gold-dark"><path d="M20 6 9 17l-5-5"></path></svg><span class="">Organizados por disciplina e período</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-gold-dark"><path d="M20 6 9 17l-5-5"></path></svg><span class="">Acesso vitalício</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-gold-dark"><path d="M20 6 9 17l-5-5"></path></svg><span class="">Download em PDF</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-gold-dark"><path d="M20 6 9 17l-5-5"></path></svg><span class="">Garantia de 7 dias</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-gold-dark"><path d="M20 6 9 17l-5-5"></path></svg><span class="">Atualizações semanais com novos livros</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-burgundy"><path d="M20 6 9 17l-5-5"></path></svg><span class="font-semibold text-burgundy">BÔNUS: Pack de Petições Iniciais (+100 modelos)</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-burgundy"><path d="M20 6 9 17l-5-5"></path></svg><span class="font-semibold text-burgundy">BÔNUS: Contratos e Honorários</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-burgundy"><path d="M20 6 9 17l-5-5"></path></svg><span class="font-semibold text-burgundy">BÔNUS: Como Conseguir Meu Primeiro Estágio</span></li>
+                            <li class="flex items-start gap-2 text-xs text-foreground sm:text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check mt-0.5 h-4 w-4 shrink-0 sm:h-5 sm:w-5 text-burgundy"><path d="M20 6 9 17l-5-5"></path></svg><span class="font-semibold text-burgundy">MANUAL AI — IA para dúvidas de estudo, indicações de livros e mais</span></li>
+                        </ul>
+                        <button onclick="abrirCheckout('pro')" class="btn-premium-pulse w-full">QUERO O PRO!</button>
+                        <p class="mt-3 flex items-center justify-center gap-2 text-xs text-muted-foreground sm:mt-4 sm:text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-3.5 w-3.5 sm:h-4 sm:w-4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            +1.253 estudantes escolheram essa oferta
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="bg-background px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-4xl text-center">
+            <p class="mb-4 text-xs font-bold tracking-widest text-gold-dark sm:mb-6 sm:text-sm">SOBRE O CRIADOR</p>
+            <div class="rounded-2xl bg-card p-5 shadow-sm border border-border sm:p-8 md:p-12">
+                <div class="flex flex-col items-center gap-4 sm:gap-6 md:flex-row md:items-start md:text-left">
+                    <div class="relative shrink-0">
+                        <img src="https://www.manualdoestudante.online/assets/author-iago-opt-Bg_Nwuja.webp" onerror="this.src='https://placehold.co/160x160/1e3a8a/d4af37?text=Dr.+Iago'" alt="Dr. Iago Ribeiro" class="h-28 w-28 rounded-full border-4 border-gold object-cover sm:h-40 sm:w-40">
+                        <span class="absolute bottom-1 left-1/2 -translate-x-1/2 rounded-lg bg-navy px-2 py-0.5 text-[10px] font-bold text-gold sm:bottom-2 sm:px-3 sm:py-1 sm:text-xs">Criador</span>
+                    </div>
+                    <div>
+                        <h3 class="mb-1 text-xl font-black text-foreground sm:text-2xl">Dr. Iago Ribeiro</h3>
+                        <p class="mb-3 text-sm font-semibold text-gold-dark sm:mb-4">Advogado e Professor de Direito</p>
+                        <p class="mb-2 text-xs leading-relaxed text-muted-foreground sm:mb-3 sm:text-sm">Bacharel em Direito pela Universidade Federal e pós-graduado em Direito Civil e Processual Civil, <strong class="text-foreground">Dr. Iago</strong> atua há mais de 12 anos no mundo jurídico, entre advocacia e docência.</p>
+                        <p class="mb-2 text-xs leading-relaxed text-muted-foreground sm:mb-3 sm:text-sm">Criou o <strong class="text-foreground">Manual do Estudante De Direito</strong> após ver que seus alunos gastavam fortunas em livros e ainda assim não tinham acesso a toda a bibliografia necessária. Reuniu +500 obras essenciais em uma biblioteca digital acessível.</p>
+                        <p class="text-xs leading-relaxed text-muted-foreground sm:text-sm">Já ajudou mais de <strong class="text-foreground">5.000 estudantes</strong> em todo o Brasil a economizarem tempo e dinheiro na faculdade de Direito.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 border-t border-border pt-6 sm:mt-8 sm:pt-8">
+                    <div class="grid grid-cols-3 gap-3 text-center sm:gap-4">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award mx-auto mb-1 h-6 w-6 text-gold-dark sm:mb-2 sm:h-8 sm:w-8"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                            <p class="text-xl font-black text-navy sm:text-2xl">12+</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Anos de Experiência</p>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users mx-auto mb-1 h-6 w-6 text-gold-dark sm:mb-2 sm:h-8 sm:w-8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <p class="text-xl font-black text-navy sm:text-2xl">5.000+</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Estudantes Ajudados</p>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open mx-auto mb-1 h-6 w-6 text-gold-dark sm:mb-2 sm:h-8 sm:w-8"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                            <p class="text-xl font-black text-navy sm:text-2xl">500+</p>
+                            <p class="text-[10px] text-muted-foreground sm:text-xs">Livros Curados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-card px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-3xl text-center">
+            <h2 class="mb-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">Perguntas <span class="text-gold-dark">Frequentes</span></h2>
+            <p class="mb-6 text-sm text-muted-foreground sm:mb-10 sm:text-base">Tire suas dúvidas antes de garantir sua Biblioteca</p>
+            
+            <div class="text-left space-y-2 sm:space-y-3">
+                <!-- FAQ Item 1 -->
+                <div class="rounded-xl border border-border bg-background px-3 sm:px-4">
+                    <h3>
+                        <button class="faq-toggle flex w-full items-center justify-between py-4 text-xs font-medium text-foreground sm:text-sm" aria-expanded="false">
+                            Quantos livros estão incluídos?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </h3>
+                    <div class="accordion-content overflow-hidden text-sm text-muted-foreground" data-state="closed">
+                        <div class="pb-4">Nossa biblioteca conta atualmente com mais de 500 livros completos, abrangendo todas as áreas e períodos do curso de Direito.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="rounded-xl border border-border bg-background px-3 sm:px-4">
+                    <h3>
+                        <button class="faq-toggle flex w-full items-center justify-between py-4 text-xs font-medium text-foreground sm:text-sm" aria-expanded="false">
+                            Como os livros são organizados?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </h3>
+                    <div class="accordion-content overflow-hidden text-sm text-muted-foreground" data-state="closed">
+                        <div class="pb-4">Tudo é dividido estrategicamente por disciplinas (Civil, Penal, Constitucional, etc.) e também por pastas que vão do 1º período até a preparação para a OAB.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="rounded-xl border border-border bg-background px-3 sm:px-4">
+                    <h3>
+                        <button class="faq-toggle flex w-full items-center justify-between py-4 text-xs font-medium text-foreground sm:text-sm" aria-expanded="false">
+                            Como vou acessar o material após a compra?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </h3>
+                    <div class="accordion-content overflow-hidden text-sm text-muted-foreground" data-state="closed">
+                        <div class="pb-4">Assim que o pagamento for aprovado, você receberá um e-mail com o link de acesso imediato à plataforma onde todos os livros e bônus estão hospedados para download.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="rounded-xl border border-border bg-background px-3 sm:px-4">
+                    <h3>
+                        <button class="faq-toggle flex w-full items-center justify-between py-4 text-xs font-medium text-foreground sm:text-sm" aria-expanded="false">
+                            Quais formas de pagamento são aceitas?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </h3>
+                    <div class="accordion-content overflow-hidden text-sm text-muted-foreground" data-state="closed">
+                        <div class="pb-4">Aceitamos PIX (liberação imediata), Cartão de Crédito em até 12x e Boleto Bancário (pode levar até 3 dias úteis para compensar).</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="rounded-xl border border-border bg-background px-3 sm:px-4">
+                    <h3>
+                        <button class="faq-toggle flex w-full items-center justify-between py-4 text-xs font-medium text-foreground sm:text-sm" aria-expanded="false">
+                            Como funciona a garantia de 7 dias?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </h3>
+                    <div class="accordion-content overflow-hidden text-sm text-muted-foreground" data-state="closed">
+                        <div class="pb-4">Se por qualquer motivo você acessar e achar que a biblioteca não é para você, basta enviar um e-mail dentro do prazo de 7 dias e devolveremos 100% do seu dinheiro, sem perguntas.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="rounded-xl border border-border bg-background px-3 sm:px-4">
+                    <h3>
+                        <button class="faq-toggle flex w-full items-center justify-between py-4 text-xs font-medium text-foreground sm:text-sm" aria-expanded="false">
+                            Serve para qual período da faculdade?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                    </h3>
+                    <div class="accordion-content overflow-hidden text-sm text-muted-foreground" data-state="closed">
+                        <div class="pb-4">Do 1º ao 10º período! Temos desde Introdução ao Estudo do Direito até Prática Jurídica Avançada e livros preparatórios para OAB e Concursos.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="bg-background px-4 py-12 sm:py-16">
+        <div class="mx-auto max-w-2xl text-center">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-navy sm:mb-6 sm:h-20 sm:w-20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-8 w-8 text-gold sm:h-10 sm:w-10"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+            </div>
+            <h2 class="mb-2 flex items-center justify-center gap-2 text-2xl font-black text-foreground sm:mb-3 sm:text-3xl md:text-4xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-6 w-6 text-gold-dark sm:h-8 sm:w-8"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                Sua Compra <span class="text-gold-dark">100% Segura</span>
+            </h2>
+            <p class="mx-auto mb-6 max-w-lg text-sm text-muted-foreground sm:mb-8">
+                Sua satisfação é garantida! Se por qualquer motivo você não ficar satisfeito com a biblioteca, tem <strong class="text-foreground">7 dias para pedir seu dinheiro de volta</strong>. Risco zero para você!
+            </p>
+            <button onclick="abrirCheckout('pro')" class="btn-cta inline-flex text-base sm:text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-4 w-4 sm:h-5 sm:w-5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                GARANTIR MINHA BIBLIOTECA AGORA
+            </button>
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground sm:mt-8 sm:gap-6 sm:text-sm">
+                <span class="flex items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-3.5 w-3.5 sm:h-4 sm:w-4"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Compra Segura</span>
+                <span class="flex items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big h-3.5 w-3.5 sm:h-4 sm:w-4"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg> Satisfação Garantida</span>
+                <span class="flex items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award h-3.5 w-3.5 sm:h-4 sm:w-4"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg> Qualidade Premium</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Checkout PIX (Ultra Premium Bottom-Sheet) -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex-col justify-end sm:justify-center items-center bg-navy-dark/80 backdrop-blur-md px-0 sm:px-4 opacity-0 transition-opacity duration-500">
+        <!-- Brilho de fundo sutil (Aura Dourada) -->
+        <div class="absolute inset-0 flex justify-center items-end sm:items-center pointer-events-none">
+            <div class="w-[300px] h-[300px] bg-gold/20 rounded-full blur-[100px] mb-[-100px] sm:mb-0"></div>
+        </div>
+
+        <!-- Sheet Principal -->
+        <div id="checkout-sheet" class="w-full bg-white sm:max-w-md rounded-t-[2.5rem] sm:rounded-3xl shadow-[0_-20px_80px_-20px_rgba(212,175,55,0.25)] relative flex flex-col max-h-[95vh] sm:max-h-[92vh] overflow-hidden transform translate-y-full transition-transform duration-500 ease-out z-10 border-t border-gold/20 sm:border sm:border-border mt-auto sm:mt-0">
+            
+            <!-- Drag Handle (Mobile) & Selo de Segurança -->
+            <div class="bg-gradient-to-b from-slate-50 to-white pt-3 pb-3 sm:pb-4 relative border-b border-border/50 shrink-0">
+                <div class="flex justify-center sm:hidden mb-3">
+                    <div class="w-12 h-1.5 bg-slate-300 rounded-full"></div>
+                </div>
+                
+                <div class="flex items-center justify-center gap-1.5 text-xs font-bold tracking-widest text-emerald-600 uppercase">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Checkout Seguro
+                </div>
+
+                <!-- Botão Fechar -->
+                <button onclick="fecharCheckout()" class="absolute top-4 sm:top-5 right-4 sm:right-5 text-slate-400 hover:text-navy bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Premium Header -->
+            <div class="px-5 sm:px-6 py-4 sm:py-5 text-center bg-white relative shrink-0">
+                <!-- Efeito sutil no fundo do header -->
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold/5 via-white to-white pointer-events-none"></div>
+                
+                <!-- Imagem Adicionada no Bottom Sheet -->
+                <img src="assets/checkout-banner.webp" alt="Material Exclusivo" class="relative z-10 mx-auto mb-3 sm:mb-4 h-auto w-[80%] max-w-[200px] sm:max-w-[240px] rounded-xl object-contain drop-shadow-lg" loading="lazy" decoding="async" />
+
+                <h3 class="text-lg sm:text-xl font-black text-navy-dark mb-1 relative z-10">Liberar Acesso</h3>
+                <p id="checkout-plan-name" class="text-[10px] sm:text-[11px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-3 sm:mb-4 relative z-10">Carregando plano...</p>
+                
+                <div class="relative z-10 inline-flex items-center justify-center bg-gradient-to-r from-navy to-navy-dark px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl shadow-xl shadow-navy/20">
+                    <p id="checkout-plan-price" class="text-2xl sm:text-3xl font-black text-gold drop-shadow-md tracking-tight">R$ 0,00</p>
+                </div>
+            </div>
+
+            <!-- Body/Form (Rolável se a tela for pequena) -->
+            <div class="px-5 sm:px-6 pb-8 pt-2 overflow-y-auto custom-scrollbar flex-1">
+                <form id="pix-form" class="space-y-4">
+                    <!-- Nome -->
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1">Como devemos te chamar?</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-gold transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <input type="text" id="pix-name" required placeholder="Seu nome completo" class="w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-3.5 pl-12 pr-4 text-base sm:text-sm font-semibold text-navy-dark transition-all focus:border-gold/50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gold/10 placeholder:text-slate-400 placeholder:font-medium" />
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1">Onde enviaremos o acesso?</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-gold transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            <input type="email" id="pix-email" required placeholder="seu.melhor@email.com" class="w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-3.5 pl-12 pr-4 text-base sm:text-sm font-semibold text-navy-dark transition-all focus:border-gold/50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gold/10 placeholder:text-slate-400 placeholder:font-medium" />
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1">Seu WhatsApp</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-gold transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <input type="text" id="pix-phone" required placeholder="(00) 00000-0000" maxlength="15" class="w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-3.5 pl-12 pr-4 text-base sm:text-sm font-semibold text-navy-dark transition-all focus:border-gold/50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gold/10 placeholder:text-slate-400 placeholder:font-medium" />
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full mt-5 sm:mt-6 relative overflow-hidden group rounded-2xl bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-navy-dark font-black tracking-wide py-4 shadow-[0_10px_30px_-10px_rgba(212,175,55,0.6)] hover:shadow-[0_15px_40px_-10px_rgba(212,175,55,0.8)] transition-all active:scale-[0.98]">
+                        <!-- Efeito de brilho passando no botão -->
+                        <div class="absolute inset-0 bg-white/30 translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] skew-x-[-20deg]"></div>
+                        
+                        <div class="flex items-center justify-center gap-2 relative z-10 text-base sm:text-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+                            GERAR PIX AGORA
+                        </div>
+                    </button>
+                    
+                    <div class="flex items-center justify-center gap-2 mt-3 sm:mt-4 text-[10px] font-bold text-slate-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Protegido por Criptografia Ponta a Ponta
+                    </div>
+                </form>
+
+                <!-- Loading Estado (Aros Circulares Premium) -->
+                <div id="pix-loading" class="hidden flex-col items-center justify-center py-12 animate-in fade-in duration-500">
+                    <div class="relative w-20 h-20 mb-6 flex items-center justify-center">
+                        <div class="absolute inset-0 rounded-full border-4 border-slate-100"></div>
+                        <div class="absolute inset-0 rounded-full border-4 border-gold border-r-transparent border-t-transparent animate-[spin_1.5s_linear_infinite]"></div>
+                        <div class="absolute inset-2 rounded-full border-4 border-navy/10 border-l-transparent animate-[spin_2s_linear_infinite_reverse]"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gold animate-pulse"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <p class="text-lg font-black text-navy-dark tracking-tight">Conectando ao Banco Central...</p>
+                    <p class="text-sm font-medium text-slate-400 mt-1">Gerando sua chave PIX exclusiva.</p>
+                </div>
+
+                <!-- Resultado do PIX (Bilhete Dourado) -->
+                <div id="pix-result" class="hidden flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 p-3 rounded-2xl text-sm font-black tracking-wide mb-6 w-full text-center flex items-center justify-center gap-2 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                        TUDO CERTO! PIX GERADO.
+                    </div>
+                    
+                    <div class="relative w-full max-w-[240px] mb-6 group">
+                        <!-- Brilho Dourado atrás do QR -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold via-gold-light to-gold rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative bg-white p-4 rounded-2xl border-2 border-gold/30 shadow-xl flex justify-center">
+                            <img id="pix-qr-image" src="" alt="QR Code PIX" class="w-48 h-48 object-contain rounded-xl mix-blend-multiply" />
+                        </div>
+                    </div>
+                    
+                    <div class="w-full bg-slate-50 rounded-2xl p-4 border border-slate-100 relative">
+                        <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                            Código Copia e Cola
+                        </p>
+                        <div class="flex gap-2">
+                            <input type="text" id="pix-copy-text" readonly class="flex-1 bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-[11px] text-slate-600 font-mono font-medium outline-none focus:border-gold transition-colors truncate" />
+                            <button type="button" onclick="copiarPix()" id="btn-copiar" class="bg-navy hover:bg-navy-dark text-white px-5 rounded-xl text-sm font-bold transition-all shadow-md flex items-center gap-1.5 whitespace-nowrap active:scale-95">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                Copiar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs font-bold text-navy text-center bg-gold/10 border border-gold/20 py-3 px-4 rounded-xl w-full mt-4 flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                        Liberação Imediata Pós-Pagamento
+                    </p>
+                </div>
+                
+                <!-- Mensagem de Erro -->
+                <div id="pix-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-xs font-medium text-center">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE UPGRADE UPSELL (PROMOÇÃO PRO POR R$ 17,90) -->
+    <div id="upgrade-modal" class="fixed inset-0 z-[60] hidden flex-col justify-center items-center bg-navy-dark/95 backdrop-blur-xl px-4 opacity-0 transition-opacity duration-500">
+        
+        <!-- Efeito visual premium de fundo -->
+        <div class="absolute inset-0 flex justify-center items-center pointer-events-none overflow-hidden">
+            <div class="w-[120vw] h-[120vw] sm:w-[600px] sm:h-[600px] bg-gold/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute w-[80vw] h-[80vw] sm:w-[400px] sm:h-[400px] bg-navy-light/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div id="upgrade-sheet" class="w-[90%] sm:w-full bg-white sm:max-w-md rounded-[2.5rem] shadow-[0_20px_100px_-10px_rgba(15,23,42,0.3)] relative flex flex-col max-h-[95vh] overflow-y-auto custom-scrollbar transform scale-90 opacity-0 transition-all duration-500 ease-out z-10 border border-slate-100 p-6">
+            
+            <!-- Badge superior -->
+            <div class="flex justify-center mb-4">
+                <span class="bg-[#800020] text-white text-[9px] sm:text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-wider">🔥 ÚLTIMA OFERTA — NÃO APARECE NOVAMENTE</span>
+            </div>
+
+            <!-- Título Principal -->
+            <div class="text-center">
+                <h3 class="text-3xl font-black text-[#0f172a] font-serif mb-1">Espere!</h3>
+                <p class="text-xs sm:text-sm text-slate-500">Leve o <span class="font-bold text-slate-700">Plano PRO completo</span> por menos de R$ 18</p>
+            </div>
+
+            <!-- Caixa de Preço Destacado -->
+            <div class="bg-[#f1f5f9] rounded-2xl py-3 px-4 my-4 text-center">
+                <span class="text-[10px] sm:text-xs text-slate-400 font-semibold line-through">De R$ 256</span>
+                <div class="text-4xl sm:text-5xl font-black text-[#0f172a] my-0.5">R$ 17<span class="text-2xl sm:text-3xl font-black">,90</span></div>
+                <span class="text-[9px] sm:text-[10px] text-slate-400 font-semibold">pagamento único — economia de R$ 238</span>
+            </div>
+
+            <!-- Caixa de Benefícios com borda dourada -->
+            <div class="border border-gold/40 bg-gold/5 rounded-2xl p-4 mb-4 text-left">
+                <p class="text-[10px] sm:text-xs font-bold text-gold-dark text-center uppercase tracking-wider mb-2.5">Você leva tudo isso:</p>
+                <ul class="space-y-1.5 text-[10px] sm:text-[11px] font-semibold text-slate-600">
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>+500 Livros Completos de Direito</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Organizados por disciplina e período</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Acesso vitalício</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Download em PDF</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Garantia de 7 dias</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Atualizações semanais com novos livros</li>
+                    <li class="flex items-start gap-2 text-burgundy"><svg class="w-3.5 h-3.5 text-burgundy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>BÔNUS: Pack de Petições Iniciais (+100 modelos)</li>
+                    <li class="flex items-start gap-2 text-burgundy"><svg class="w-3.5 h-3.5 text-burgundy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>BÔNUS: Contratos e Honorários</li>
+                    <li class="flex items-start gap-2 text-burgundy"><svg class="w-3.5 h-3.5 text-burgundy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>BÔNUS: Como Conseguir Meu Primeiro Estágio</li>
+                    <li class="flex items-start gap-2 text-burgundy"><svg class="w-3.5 h-3.5 text-burgundy shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>MANUAL AI — IA para dúvidas de estudo, indicações de livros e mais</li>
+                </ul>
+            </div>
+
+            <!-- Botão de Ação Primária -->
+            <button onclick="aceitarUpgrade()" class="w-full rounded-2xl bg-gold py-4 text-center text-sm font-black text-navy-dark uppercase shadow-lg shadow-gold/30 hover:shadow-gold/50 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                SIM, QUERO O PRO POR R$17,90!
+            </button>
+            
+            <!-- Link de Ação Secundária -->
+            <button onclick="recusarUpgrade()" class="w-full text-xs text-slate-500 hover:text-slate-700 font-bold transition-colors underline block text-center mt-4">
+                Não, quero apenas a Biblioteca Básica por R$ 10
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL DE DOWNSELL DE SAÍDA (PROMOÇÃO PRO POR R$ 15,90) -->
+    <div id="exit-modal" class="fixed inset-0 z-[60] hidden flex-col justify-center items-center bg-navy-dark/95 backdrop-blur-xl px-4 opacity-0 transition-opacity duration-500">
+        
+        <!-- Efeito visual premium de fundo -->
+        <div class="absolute inset-0 flex justify-center items-center pointer-events-none overflow-hidden">
+            <div class="w-[120vw] h-[120vw] sm:w-[600px] sm:h-[600px] bg-red-600/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute w-[80vw] h-[80vw] sm:w-[400px] sm:h-[400px] bg-gold/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div id="exit-sheet" class="w-[90%] sm:w-full bg-white sm:max-w-md rounded-[2.5rem] shadow-[0_20px_100px_-10px_rgba(220,38,38,0.25)] relative flex flex-col max-h-[95vh] overflow-y-auto custom-scrollbar transform scale-90 opacity-0 transition-all duration-500 ease-out z-10 border border-red-100 p-6">
+            
+            <!-- Badge superior vinho -->
+            <div class="flex justify-center mb-4">
+                <span class="bg-[#800020] text-white text-[9px] sm:text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-wider">⚠️ ÚLTIMA CHANCE — DESCONTO MÁXIMO</span>
+            </div>
+
+            <!-- Título Principal -->
+            <div class="text-center">
+                <h3 class="text-3xl font-black text-[#0f172a] font-serif mb-1">Espere!</h3>
+                <p class="text-xs sm:text-sm text-slate-500">Garanta o <span class="font-bold text-slate-700">Plano PRO completo</span> antes de ir embora</p>
+            </div>
+
+            <!-- Caixa de Preço Destacado -->
+            <div class="bg-red-50/50 border border-red-100/50 rounded-2xl py-3 px-4 my-4 text-center">
+                <span class="text-[10px] sm:text-xs text-slate-400 font-semibold line-through">De R$ 256</span>
+                <div class="text-4xl sm:text-5xl font-black text-red-600 my-0.5">R$ 15<span class="text-2xl sm:text-3xl font-black">,90</span></div>
+                <span class="text-[9px] sm:text-[10px] text-red-500 font-semibold">pagamento único — economia de R$ 240</span>
+            </div>
+
+            <!-- Caixa de Benefícios com borda dourada/vermelha -->
+            <div class="border border-red-200/50 bg-red-50/10 rounded-2xl p-4 mb-4 text-left">
+                <p class="text-[10px] sm:text-xs font-bold text-red-600 text-center uppercase tracking-wider mb-2.5">O que você vai receber:</p>
+                <ul class="space-y-1.5 text-[10px] sm:text-[11px] font-semibold text-slate-600">
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>+500 Livros Completos de Direito</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Acesso vitalício + Atualizações</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Todos os Bônus (Petições, Contratos, etc.)</li>
+                    <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Manual AI (Sua IA Jurídica)</li>
+                </ul>
+            </div>
+
+            <!-- Botão de Ação Primária -->
+            <button onclick="aceitarDownsell()" class="w-full rounded-2xl bg-gold py-4 text-center text-sm font-black text-navy-dark uppercase shadow-lg shadow-gold/30 hover:shadow-gold/50 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                SIM, QUERO O PLANO PRO POR R$15,90!
+            </button>
+            
+            <!-- Link de Ação Secundária -->
+            <button onclick="recusarDownsell()" class="w-full text-xs text-slate-500 hover:text-slate-700 font-bold transition-colors underline block text-center mt-4">
+                Não, prefiro sair sem o material
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions (Timer & FAQ Accordion) -->
+    <script>
+        // ==========================================
+        // LÓGICA DO MANUAL AI (CHAT)
+        // ==========================================
+        const aiForm = document.getElementById('ai-chat-form');
+        const aiInput = document.getElementById('ai-chat-input');
+        const aiMessages = document.getElementById('ai-chat-messages');
+        const aiSubmit = document.getElementById('ai-chat-submit');
+
+        aiForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = aiInput.value.trim();
+            if (!text) return;
+
+            // 1. Adicionar mensagem do usuário
+            adicionarMensagemUI(text, 'user');
+            aiInput.value = '';
+            aiSubmit.disabled = true;
+
+            // 2. Adicionar indicador de digitando (Loading)
+            const loadingId = adicionarLoadingUI();
+
+            // 3. Simular resposta da IA (API Mock)
+            setTimeout(() => {
+                // Remover o loading
+                const loadingEl = document.getElementById(loadingId);
+                if (loadingEl) loadingEl.remove();
+                
+                // Respostas baseadas em palavras-chave
+                let resposta = "Sou uma IA em modo de demonstração. No plano PRO, eu estaria conectada a um modelo avançado para responder sua dúvida detalhadamente com base na legislação brasileira atualizada.";
+                
+                if (text.toLowerCase().includes('constitucional')) {
+                    resposta = "O Direito Constitucional é o ramo do direito público dedicado à análise das normas constitucionais. No plano PRO, eu te indico as melhores doutrinas sobre o tema!";
+                } else if (text.toLowerCase().includes('legalidade')) {
+                    resposta = "O princípio da legalidade (art. 5º, II da CF) determina que ninguém será obrigado a fazer ou deixar de fazer algo senão em virtude de lei. Posso elaborar mais se desejar.";
+                }
+
+                adicionarMensagemUI(resposta, 'ai');
+                aiSubmit.disabled = false;
+                
+            }, 1500); // 1.5s de delay simulado
+        });
+
+        function adicionarMensagemUI(texto, remetente) {
+            const div = document.createElement('div');
+            if (remetente === 'user') {
+                div.className = 'ml-auto w-fit max-w-[80%] rounded-xl rounded-br-sm bg-navy px-3 py-2 text-left text-xs text-gold-light sm:px-4 sm:text-sm animate-in fade-in slide-in-from-right-2';
+            } else {
+                div.className = 'mr-auto w-fit max-w-[80%] rounded-xl rounded-bl-sm bg-white border border-border px-3 py-2 text-left text-xs text-foreground sm:px-4 sm:text-sm shadow-sm animate-in fade-in slide-in-from-left-2';
+            }
+            div.textContent = texto;
+            aiMessages.appendChild(div);
+            aiMessages.scrollTop = aiMessages.scrollHeight; // Scroll to bottom
+        }
+
+        function adicionarLoadingUI() {
+            const id = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = 'mr-auto w-fit max-w-[80%] rounded-xl rounded-bl-sm bg-white border border-border px-4 py-3 shadow-sm flex gap-1';
+            div.innerHTML = `
+                <div class="w-1.5 h-1.5 bg-navy/40 rounded-full animate-bounce"></div>
+                <div class="w-1.5 h-1.5 bg-navy/40 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+                <div class="w-1.5 h-1.5 bg-navy/40 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+            `;
+            aiMessages.appendChild(div);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+            return id;
+        }
+
+
+        // Paradise API Helper removido do frontend por motivos de segurança.
+        // As transações agora são criadas e validadas de forma blindada no servidor intermediário (checkout.php).
+
+        // ==========================================
+        // LÓGICA DE CHECKOUT E UI
+        // ==========================================
+        const PLANOS = {
+            basico: { nome: 'Plano Básico', precoCents: 1000, precoTexto: 'R$ 10,00' },
+            pro: { nome: 'Plano PRO', precoCents: 2490, precoTexto: 'R$ 24,90' },
+            pro_desconto: { nome: 'Plano PRO (Oferta Especial)', precoCents: 1790, precoTexto: 'R$ 17,90' },
+            pro_maximo_desconto: { nome: 'Plano PRO (Super Desconto)', precoCents: 1590, precoTexto: 'R$ 15,90' }
+        };
+        
+        let planoAtual = null;
+
+        function abrirCheckout(planoId) {
+            planoAtual = PLANOS[planoId];
+            
+            // Atualizar UI do Modal
+            document.getElementById('checkout-plan-name').textContent = planoAtual.nome;
+            document.getElementById('checkout-plan-price').textContent = planoAtual.precoTexto;
+            
+            document.getElementById('pix-form').classList.remove('hidden');
+            document.getElementById('pix-result').classList.add('hidden');
+            document.getElementById('pix-result').classList.remove('flex');
+            document.getElementById('pix-loading').classList.add('hidden');
+            document.getElementById('pix-loading').classList.remove('flex');
+            document.getElementById('pix-error').classList.add('hidden');
+            document.getElementById('pix-error').classList.remove('flex');
+            
+            const modal = document.getElementById('checkout-modal');
+            const sheet = document.getElementById('checkout-sheet');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            void modal.offsetWidth; // Force reflow
+            
+            modal.classList.remove('opacity-0');
+            sheet.classList.remove('translate-y-full');
+            sheet.classList.add('translate-y-0');
+        }
+
+        function fecharCheckout() {
+            const modal = document.getElementById('checkout-modal');
+            const sheet = document.getElementById('checkout-sheet');
+            
+            modal.classList.add('opacity-0');
+            sheet.classList.remove('translate-y-0');
+            sheet.classList.add('translate-y-full');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.getElementById('pix-form').reset();
+            }, 500); 
+        }
+
+        function copiarPix() {
+            const input = document.getElementById('pix-copy-text');
+            input.select();
+            input.setSelectionRange(0, 99999); 
+            
+            document.execCommand('copy');
+            
+            const btn = document.getElementById('btn-copiar');
+            const textoOriginal = btn.innerHTML; 
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copiado!';
+            btn.classList.replace('bg-navy', 'bg-emerald-600');
+            btn.classList.replace('hover:bg-navy-dark', 'hover:bg-emerald-700');
+            
+            setTimeout(() => {
+                btn.innerHTML = textoOriginal;
+                btn.classList.replace('bg-emerald-600', 'bg-navy');
+                btn.classList.replace('hover:bg-emerald-700', 'hover:bg-navy-dark');
+            }, 2500);
+        }
+
+        // ==========================================
+        // LÓGICA DE UPGRADE (PROMOÇÃO R$ 17,90)
+        // ==========================================
+        function abrirOfertaUpgrade() {
+            const modal = document.getElementById('upgrade-modal');
+            const sheet = document.getElementById('upgrade-sheet');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            void modal.offsetWidth; // Force reflow
+            
+            modal.classList.remove('opacity-0');
+            sheet.classList.remove('scale-90', 'opacity-0');
+            sheet.classList.add('scale-100', 'opacity-100');
+        }
+
+        function fecharOfertaUpgrade() {
+            const modal = document.getElementById('upgrade-modal');
+            const sheet = document.getElementById('upgrade-sheet');
+            
+            modal.classList.add('opacity-0');
+            sheet.classList.remove('scale-100', 'opacity-100');
+            sheet.classList.add('scale-90', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 500);
+        }
+
+        function aceitarUpgrade() {
+            fecharOfertaUpgrade();
+            // Abre o checkout com o plano PRO promocional por R$ 17,90
+            setTimeout(() => {
+                abrirCheckout('pro_desconto');
+            }, 200);
+        }
+
+        function recusarUpgrade() {
+            fecharOfertaUpgrade();
+            // Abre o checkout com o plano básico por R$ 10,00
+            setTimeout(() => {
+                abrirCheckout('basico');
+            }, 200);
+        }
+
+        // ==========================================
+        // LÓGICA DE DOWNSELL (SAÍDA R$ 15,90)
+        // ==========================================
+        let downsellAcionado = false;
+
+        function inicializarBackRedirect() {
+            // Injeta um estado falso no histórico para "prender" o usuário e criar a oportunidade de pop-up
+            history.pushState(null, null, location.href);
+            window.addEventListener('popstate', handleBackRedirect);
+        }
+
+        function handleBackRedirect(event) {
+            const modalPrincipal = document.getElementById('checkout-modal');
+            const modalUpgrade = document.getElementById('upgrade-modal');
+            
+            // Só dispara se não houver um checkout de PIX ou modal de upgrade aberto
+            if (!downsellAcionado && modalPrincipal.classList.contains('hidden') && modalUpgrade.classList.contains('hidden')) {
+                downsellAcionado = true;
+                abrirDownsell();
+                // Impede que a tela volte fisicamente recriando o estado bloqueador
+                history.pushState(null, null, location.href); 
+            }
+        }
+
+        function abrirDownsell() {
+            const modal = document.getElementById('exit-modal');
+            const sheet = document.getElementById('exit-sheet');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            void modal.offsetWidth; // Force reflow
+            
+            modal.classList.remove('opacity-0');
+            sheet.classList.remove('scale-90', 'opacity-0');
+            sheet.classList.add('scale-100', 'opacity-100');
+        }
+
+        function fecharDownsell() {
+            const modal = document.getElementById('exit-modal');
+            const sheet = document.getElementById('exit-sheet');
+            
+            modal.classList.add('opacity-0');
+            sheet.classList.remove('scale-100', 'opacity-100');
+            sheet.classList.add('scale-90', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                // Se ele fechar, remove a trava para que o botão voltar passe a funcionar livremente
+                window.removeEventListener('popstate', handleBackRedirect);
+            }, 500);
+        }
+
+        function aceitarDownsell() {
+            fecharDownsell();
+            // Abre o checkout com o plano PRO promocional por R$ 15,90
+            setTimeout(() => {
+                abrirCheckout('pro_maximo_desconto');
+            }, 200);
+        }
+
+        function recusarDownsell() {
+            fecharDownsell();
+        }
+
+        // Máscaras de input simples principal
+        document.getElementById('pix-phone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+            value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+            e.target.value = value;
+        });
+
+        document.getElementById('pix-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('pix-name').value;
+            const email = document.getElementById('pix-email').value;
+            const phone = document.getElementById('pix-phone').value.replace(/\D/g, '');
+
+            document.getElementById('pix-form').classList.add('hidden');
+            document.getElementById('pix-error').classList.add('hidden');
+            document.getElementById('pix-error').classList.remove('flex');
+            document.getElementById('pix-loading').classList.remove('hidden');
+            document.getElementById('pix-loading').classList.add('flex');
+
+            try {
+                // Descobrir a chave do plano correspondente ao planoAtual
+                let planoKey = 'basico';
+                if (planoAtual === PLANOS.pro) {
+                    planoKey = 'pro';
+                } else if (planoAtual === PLANOS.pro_desconto) {
+                    planoKey = 'pro_desconto';
+                } else if (planoAtual === PLANOS.pro_maximo_desconto) {
+                    planoKey = 'pro_maximo_desconto';
+                }
+
+                // Chamar o servidor intermediário para criar a transação de forma blindada
+                const response = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        plano: planoKey
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || `Erro HTTP ${response.status}`);
+                }
+
+                const transaction = data;
+
+                document.getElementById('pix-loading').classList.add('hidden');
+                document.getElementById('pix-loading').classList.remove('flex');
+                
+                const qrBase64 = transaction.qr_code_base64 || (transaction.transaction && transaction.transaction.qr_code_base64);
+                const qrCodeCopy = transaction.qr_code || (transaction.transaction && transaction.transaction.qr_code);
+
+                if (qrBase64 && qrCodeCopy) {
+                    document.getElementById('pix-qr-image').src = `data:image/png;base64,${qrBase64}`;
+                    document.getElementById('pix-copy-text').value = qrCodeCopy;
+                    
+                    document.getElementById('pix-result').classList.remove('hidden');
+                    document.getElementById('pix-result').classList.add('flex');
+                } else {
+                    throw new Error("Resposta inválida. QR Code indisponível no momento.");
+                }
+
+            } catch (error) {
+                console.error("Erro ao gerar PIX:", error);
+                document.getElementById('pix-loading').classList.add('hidden');
+                document.getElementById('pix-loading').classList.remove('flex');
+                
+                document.getElementById('pix-form').classList.remove('hidden');
+                const errorBox = document.getElementById('pix-error');
+                errorBox.innerText = error.message;
+                errorBox.classList.remove('hidden');
+                errorBox.classList.add('flex');
+            }
+        });
+
+        // ==========================================
+        // LÓGICAS DE COMPONENTES GERAIS (FAQ E TIMER)
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // FAQ Accordion
+            const toggles = document.querySelectorAll('.faq-toggle');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.parentElement.nextElementSibling;
+                    const isOpen = content.getAttribute('data-state') === 'open';
+                    
+                    document.querySelectorAll('.accordion-content').forEach(c => c.setAttribute('data-state', 'closed'));
+                    document.querySelectorAll('.faq-toggle svg').forEach(svg => svg.style.transform = 'rotate(0deg)');
+                    
+                    if (!isOpen) {
+                        content.setAttribute('data-state', 'open');
+                        toggle.querySelector('svg').style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Countdown Timer (Ajustado para 15 minutos)
+            let hours = 0;
+            let minutes = 15;
+            let seconds = 0;
+            
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            setInterval(() => {
+                if (hours === 0 && minutes === 0 && seconds === 0) return; // Parar no 0
+
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                    }
+                }
+
+                if(hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+                if(minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+                if(secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+
+            // Ativa o escudo de backredirect (PRO por R$ 15,90)
+            inicializarBackRedirect();
+        });
+    </script>
+</body>
+</html>
