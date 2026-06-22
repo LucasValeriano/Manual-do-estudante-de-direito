@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
         return res.status(405).json({ success: false, message: 'Método não permitido. Use POST.' });
     }
 
-    const { name, email, phone, plano } = req.body || {};
+    const { name, email, phone, plano, orderbumps } = req.body || {};
 
     // Validar campos obrigatórios
     if (!name || !email || !phone || !plano) {
@@ -49,13 +49,43 @@ module.exports = async (req, res) => {
         return res.status(400).json({ success: false, message: 'Plano selecionado é inválido.' });
     }
 
+    // Tabela de Preços dos Order Bumps (Protegida contra manipulação no Servidor)
+    const tabelaOrderBumps = {
+        vade_mecum: {
+            nome: 'Vade Mecum Digital + Atualizações',
+            precoCents: 1490 // R$ 14,90
+        },
+        cronograma: {
+            nome: 'Do Zero à Aprovação - Cronograma Completo',
+            precoCents: 990 // R$ 9,90
+        },
+        questoes: {
+            nome: '+5000 questões comentadas OAB',
+            precoCents: 790 // R$ 7,90
+        }
+    };
+
+    // Calcular valor total da transação e juntar descrições dos itens selecionados
+    let valorTotalCents = planoSelecionado.precoCents;
+    let itensAdquiridos = [`Manual do Estudante de Direito - ${planoSelecionado.nome}`];
+
+    if (Array.isArray(orderbumps)) {
+        orderbumps.forEach(obId => {
+            const obInfo = tabelaOrderBumps[obId];
+            if (obInfo) {
+                valorTotalCents += obInfo.precoCents;
+                itensAdquiridos.push(obInfo.nome);
+            }
+        });
+    }
+
     // Credenciais da API da Paradise Pags (Ocultas com segurança no Servidor)
     const apiKey = 'sk_442210ea27466a39a787b9cd791c0d93c3f374bfb9eea4443dd0656a319ddb23';
 
     // Montar payload de envio para a Paradise Pags
     const payload = JSON.stringify({
-        amount: planoSelecionado.precoCents,
-        description: `Manual do Estudante de Direito - ${planoSelecionado.nome}`,
+        amount: valorTotalCents,
+        description: itensAdquiridos.join(' + '),
         reference: `MED-${Date.now()}-${Math.floor(Math.random() * 9000 + 1000)}`,
         customer: {
             name: name,

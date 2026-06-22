@@ -741,8 +741,8 @@
                 <!-- Efeito sutil no fundo do header -->
                 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold/5 via-white to-white pointer-events-none"></div>
                 
-                <!-- Imagem Adicionada no Bottom Sheet -->
-                <img src="assets/checkout-banner.webp" alt="Material Exclusivo" class="relative z-10 mx-auto mb-3 sm:mb-4 h-auto w-[90%] max-w-[280px] sm:max-w-[340px] rounded-xl object-contain drop-shadow-lg" loading="lazy" decoding="async" />
+                <!-- Imagem Adicionada no Bottom Sheet (Aumentada para melhor visibilidade Mobile-First) -->
+                <img src="assets/checkout-banner.webp" alt="Material Exclusivo" class="relative z-10 mx-auto mb-3 sm:mb-4 h-auto w-[95%] max-w-[340px] sm:max-w-[380px] rounded-xl object-contain drop-shadow-lg" loading="lazy" decoding="async" />
 
                 <h3 class="text-lg sm:text-xl font-black text-navy-dark mb-1 relative z-10">Liberar Acesso</h3>
                 <p id="checkout-plan-name" class="text-[10px] sm:text-[11px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-3 sm:mb-4 relative z-10">Carregando plano...</p>
@@ -785,6 +785,62 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             </div>
                             <input type="text" id="pix-phone" required placeholder="(00) 00000-0000" maxlength="15" class="w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-3.5 pl-12 pr-4 text-base sm:text-sm font-semibold text-navy-dark transition-all focus:border-gold/50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gold/10 placeholder:text-slate-400 placeholder:font-medium" />
+                        </div>
+                    </div>
+                    
+                    <!-- Seção de Ofertas Exclusivas (Order Bumps) -->
+                    <div class="space-y-3 pt-2">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1 block">
+                            Adicione mais conteúdo com desconto especial:
+                        </label>
+                        
+                        <!-- Order Bump 1: Vade Mecum -->
+                        <div onclick="toggleOrderBump('vade_mecum')" id="ob-card-vade_mecum" class="flex items-center gap-3.5 p-3 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100/30 cursor-pointer transition-all duration-300 select-none">
+                            <img src="assets/ob-vade-mecum.webp" alt="Vade Mecum Digital" class="w-10 h-14 object-cover rounded-xl shadow-sm shrink-0 pointer-events-none" />
+                            <div class="flex-1 min-w-0 pointer-events-none">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider mb-1">RECOMENDADO</span>
+                                <h4 class="text-xs sm:text-sm font-bold text-slate-800 leading-tight">Vade Mecum Digital + Atualizações</h4>
+                                <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">Legislação selecionada e atualizada.</p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-black text-emerald-600">+ R$ 14,90</span>
+                                    <span class="text-[9px] text-slate-400 font-semibold line-through">de R$ 49,90</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 pointer-events-none pr-1">
+                                <input type="checkbox" id="ob-check-vade_mecum" class="w-5 h-5 rounded-md border-slate-300 text-blue-600 focus:ring-blue-500 pointer-events-none" />
+                            </div>
+                        </div>
+
+                        <!-- Order Bump 2: Cronograma -->
+                        <div onclick="toggleOrderBump('cronograma')" id="ob-card-cronograma" class="flex items-center gap-3.5 p-3 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100/30 cursor-pointer transition-all duration-300 select-none">
+                            <img src="assets/ob-cronograma.webp" alt="Cronograma Completo" class="w-10 h-14 object-cover rounded-xl shadow-sm shrink-0 pointer-events-none" />
+                            <div class="flex-1 min-w-0 pointer-events-none">
+                                <h4 class="text-xs sm:text-sm font-bold text-slate-800 leading-tight">Do Zero à Aprovação - Cronograma Completo</h4>
+                                <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">Roteiro estratégico guiado de estudos.</p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-black text-emerald-600">+ R$ 9,90</span>
+                                    <span class="text-[9px] text-slate-400 font-semibold line-through">de R$ 29,90</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 pointer-events-none pr-1">
+                                <input type="checkbox" id="ob-check-cronograma" class="w-5 h-5 rounded-md border-slate-300 text-blue-600 focus:ring-blue-500 pointer-events-none" />
+                            </div>
+                        </div>
+
+                        <!-- Order Bump 3: Questões -->
+                        <div onclick="toggleOrderBump('questoes')" id="ob-card-questoes" class="flex items-center gap-3.5 p-3 rounded-2xl border-2 border-slate-100 bg-slate-50 hover:bg-slate-100/30 cursor-pointer transition-all duration-300 select-none">
+                            <img src="assets/ob-questoes.webp" alt="Questões OAB" class="w-10 h-14 object-cover rounded-xl shadow-sm shrink-0 pointer-events-none" />
+                            <div class="flex-1 min-w-0 pointer-events-none">
+                                <h4 class="text-xs sm:text-sm font-bold text-slate-800 leading-tight">+5000 questões comentadas OAB</h4>
+                                <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">Banco de questões comentadas e gabaritadas.</p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-black text-emerald-600">+ R$ 7,90</span>
+                                    <span class="text-[9px] text-slate-400 font-semibold line-through">de R$ 39,90</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 pointer-events-none pr-1">
+                                <input type="checkbox" id="ob-check-questoes" class="w-5 h-5 rounded-md border-slate-300 text-blue-600 focus:ring-blue-500 pointer-events-none" />
+                            </div>
                         </div>
                     </div>
                     
@@ -1053,11 +1109,63 @@
             pro_desconto: { nome: 'Plano PRO (Oferta Especial)', precoCents: 1790, precoTexto: 'R$ 17,90' },
             pro_maximo_desconto: { nome: 'Plano PRO (Super Desconto)', precoCents: 1590, precoTexto: 'R$ 15,90' }
         };
+
+        const ORDER_BUMPS = {
+            vade_mecum: { nome: 'Vade Mecum Digital + Atualizações', precoCents: 1490 },
+            cronograma: { nome: 'Do Zero à Aprovação - Cronograma Completo', precoCents: 990 },
+            questoes: { nome: '+5000 questões comentadas OAB', precoCents: 790 }
+        };
         
         let planoAtual = null;
+        let orderBumpsAtivos = new Set();
+
+        function toggleOrderBump(id) {
+            const card = document.getElementById(`ob-card-${id}`);
+            const check = document.getElementById(`ob-check-${id}`);
+            if (!card || !check) return;
+
+            if (orderBumpsAtivos.has(id)) {
+                orderBumpsAtivos.delete(id);
+                card.classList.remove('border-blue-500/60', 'bg-blue-50/10');
+                card.classList.add('border-slate-100', 'bg-slate-50');
+                check.checked = false;
+            } else {
+                orderBumpsAtivos.add(id);
+                card.classList.remove('border-slate-100', 'bg-slate-50');
+                card.classList.add('border-blue-500/60', 'bg-blue-50/10');
+                check.checked = true;
+            }
+            atualizarPrecoTotal();
+        }
+
+        function atualizarPrecoTotal() {
+            if (!planoAtual) return;
+            let totalCents = planoAtual.precoCents;
+            orderBumpsAtivos.forEach(id => {
+                const bump = ORDER_BUMPS[id];
+                if (bump) {
+                    totalCents += bump.precoCents;
+                }
+            });
+            
+            const precoFormatado = (totalCents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('checkout-plan-price').textContent = precoFormatado;
+        }
 
         function abrirCheckout(planoId) {
             planoAtual = PLANOS[planoId];
+            
+            // Resetar seleções de order bumps
+            orderBumpsAtivos.clear();
+            Object.keys(ORDER_BUMPS).forEach(id => {
+                const card = document.getElementById(`ob-card-${id}`);
+                const check = document.getElementById(`ob-check-${id}`);
+                if (card && check) {
+                    card.classList.remove('border-blue-500/60', 'bg-blue-50/10');
+                    card.classList.add('border-slate-100', 'bg-slate-50');
+                    check.checked = false;
+                }
+            });
             
             // Atualizar UI do Modal
             document.getElementById('checkout-plan-name').textContent = planoAtual.nome;
@@ -1275,7 +1383,8 @@
                         name: name,
                         email: email,
                         phone: phone,
-                        plano: planoKey
+                        plano: planoKey,
+                        orderbumps: Array.from(orderBumpsAtivos)
                     })
                 });
 
