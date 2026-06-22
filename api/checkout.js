@@ -16,11 +16,11 @@ module.exports = async (req, res) => {
         return res.status(405).json({ success: false, message: 'Método não permitido. Use POST.' });
     }
 
-    const { name, email, phone, plano, orderbumps } = req.body || {};
+    const { name, email, phone, document: cpfInput, plano, orderbumps } = req.body || {};
 
     // Validar campos obrigatórios
-    if (!name || !email || !phone || !plano) {
-        return res.status(400).json({ success: false, message: 'Por favor, preencha todos os campos (nome, e-mail, telefone e plano).' });
+    if (!name || !email || !phone || !cpfInput || !plano) {
+        return res.status(400).json({ success: false, message: 'Por favor, preencha todos os campos (nome, e-mail, telefone, CPF e plano).' });
     }
 
     // Tabela de Preços e Nomes dos Planos Rígida no Servidor (Protegida contra manipulação)
@@ -82,15 +82,16 @@ module.exports = async (req, res) => {
     // Credenciais da API da Paradise Pags (Ocultas com segurança no Servidor)
     const apiKey = 'sk_442210ea27466a39a787b9cd791c0d93c3f374bfb9eea4443dd0656a319ddb23';
 
-    // Montar payload de envio para a Paradise Pags
+    // Montar payload de envio para a Paradise Pags (Simplificado para evitar erro 400 por string longa ou caracteres inválidos no gateway)
     const payload = JSON.stringify({
         amount: valorTotalCents,
-        description: itensAdquiridos.join(' + '),
+        description: `Manual do Estudante de Direito - ${planoSelecionado.nome}`,
         reference: `MED-${Date.now()}-${Math.floor(Math.random() * 9000 + 1000)}`,
         customer: {
             name: name,
             email: email,
-            phone: phone.replace(/\D/g, '')
+            phone: phone.replace(/\D/g, ''),
+            document: cpfInput.replace(/\D/g, '')
         },
         source: 'api_externa'
     });
