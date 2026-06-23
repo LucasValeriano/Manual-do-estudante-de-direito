@@ -1108,8 +1108,49 @@
         }
 
 
-        // Paradise API Helper removido do frontend por motivos de segurança.
-        // As transações agora são criadas e validadas de forma blindada no servidor intermediário (checkout.php).
+        // ==========================================
+        // PARADISE PIX API — INTEGRAÇÃO OFICIAL
+        // ==========================================
+        const PARADISE_CONFIG = {
+            baseUrl: 'https://multi.paradisepags.com/api/v1',
+            apiKey: 'sk_442210ea27466a39a787b9cd791c0d93c3f374bfb9eea4443dd0656a319ddb23',
+            sellerId: 7215,
+        };
+
+        class ParadisePixAPI {
+            constructor(config = PARADISE_CONFIG) {
+                this.baseUrl = config.baseUrl;
+                this.apiKey = config.apiKey;
+                this.sellerId = config.sellerId;
+            }
+
+            async request(endpoint, options = {}) {
+                const response = await fetch(`${this.baseUrl}${endpoint}`, {
+                    ...options,
+                    headers: {
+                        'X-API-Key': this.apiKey,
+                        'Content-Type': 'application/json',
+                        ...(options.headers || {}),
+                    },
+                });
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.message || `Erro HTTP ${response.status}`);
+                }
+                return data;
+            }
+
+            async createPixTransaction({ amount, description, reference, customer, source = 'api_externa', orderbump = [] }) {
+                const payload = { amount, description, reference, customer, source };
+                if (orderbump.length) payload.orderbump = orderbump;
+                return this.request('/transaction.php', {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                });
+            }
+        }
+
+        const pixAPI = new ParadisePixAPI();
 
         // ==========================================
         // LÓGICA DE CHECKOUT E UI
@@ -1384,61 +1425,49 @@
             document.getElementById('pix-loading').classList.add('flex');
 
             try {
-                // Descobrir a chave do plano correspondente ao planoAtual
-                let planoKey = 'basico';
-                if (planoAtual === PLANOS.pro) {
-                    planoKey = 'pro';
-                } else if (planoAtual === PLANOS.pro_desconto) {
-                    planoKey = 'pro_desconto';
-                } else if (planoAtual === PLANOS.pro_maximo_desconto) {
-                    planoKey = 'pro_maximo_desconto';
-                }
+                // Calcular valor total (plano + order bumps selecionados)
+                const totalCents = planoAtual.precoCents + Array.from(orderBumpsAtivos).reduce((acc, obId) => {
+                    return acc + (ORDER_BUMPS[obId] ? ORDER_BUMPS[obId].precoCents : 0);
+                }, 0);
 
-                // Chamar o servidor intermediário para criar a transação de forma blindada
-                const response = await fetch('/api/checkout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
+                // Criar transação usando a classe oficial ParadisePixAPI
+                const transaction = await pixAPI.createPixTransaction({
+                    amount: totalCents,
+                    description: `Manual do Estudante de Direito - ${planoAtual.nome}`,
+                    reference: `MED-${Date.now()}-${Math.floor(Math.random() * 9000 + 1000)}`,
+                    customer: {
                         name: name,
                         email: email,
                         phone: phone,
-                        document: cpf,
-                        plano: planoKey,
-                        orderbumps: Array.from(orderBumpsAtivos)
-                    })
+                        document: cpf
+                    },
+                    source: 'api_externa'
                 });
 
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(data.message || `Erro HTTP ${response.status}`);
-                }
-
-                const transaction = data;
+                console.log('Resposta PIX:', transaction);
 
                 document.getElementById('pix-loading').classList.add('hidden');
                 document.getElementById('pix-loading').classList.remove('flex');
-                
-                const qrBase64 = transaction.qr_code_base64 || (transaction.transaction && transaction.transaction.qr_code_base64);
-                const qrCodeCopy = transaction.qr_code || (transaction.transaction && transaction.transaction.qr_code);
 
-                if (qrBase64 && qrCodeCopy) {
-                    document.getElementById('pix-qr-image').src = `data:image/png;base64,${qrBase64}`;
-                    document.getElementById('pix-copy-text').value = qrCodeCopy;
-                    
-                    document.getElementById('pix-result').classList.remove('hidden');
-                    document.getElementById('pix-result').classList.add('flex');
-                } else {
-                    throw new Error("Resposta inválida. QR Code indisponível no momento.");
-                }
+                const qrCodeCopy = transaction.qr_code || null;
+                const qrBase64   = transaction.qr_code_base64 || null;
+
+                if (!qrCodeCopy) throw new Error('PIX indisponível no momento. Tente novamente.');
+
+                // Exibe imagem: usa base64 se disponível, senão gera via serviço externo
+                document.getElementById('pix-qr-image').src = qrBase64
+                    ? `data:image/png;base64,${qrBase64}`
+                    : `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrCodeCopy)}`;
+
+                document.getElementById('pix-copy-text').value = qrCodeCopy;
+                document.getElementById('pix-result').classList.remove('hidden');
+                document.getElementById('pix-result').classList.add('flex');
 
             } catch (error) {
-                console.error("Erro ao gerar PIX:", error);
+                console.error('Erro ao gerar PIX:', error);
                 document.getElementById('pix-loading').classList.add('hidden');
                 document.getElementById('pix-loading').classList.remove('flex');
-                
+
                 document.getElementById('pix-form').classList.remove('hidden');
                 const errorBox = document.getElementById('pix-error');
                 errorBox.innerText = error.message;
